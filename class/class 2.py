@@ -1,4 +1,4 @@
-'''isinstance(3, int) #проверяет принажлежность классаы
+'''isinstance(3, int) #проверяет принажлежность классy
 s = 'mDA'
 print(s.count('a')) #считать элемент в последовательности
 print(s.upper(), s.lower())
@@ -33,10 +33,18 @@ for i in cons:
 
 #5.2
 nouns = ['An apple', 'A ball', 'A knife', 'A cup', 'A pillow', 'A flag', 'A goose', 'A linguist']
-verbs = ['finds', 'bites', 'sings', 'draws', 'hunts']
+verbs = ['lights', 'befriends', 'sings', 'fires', 'shaves']
 sentence = '{} {} {}.'
 for S in nouns:
     for V in verbs:
         for O in nouns:
             print(sentence.format(S,V,O.lower()))
 
+#1
+values = list(range(66))
+def mean(vals):
+    if vals:
+        return(float(sum(vals)))/len(vals)
+    else:
+        return('n/a')
+print(mean(values))
