@@ -1,9 +1,14 @@
-# coding-year-2
+#Пары и домашние задания по программированию, 2 курс
 
-Кузнецова Алина 
+##Алина Кузнецова, группа 3 
 
-cuznetsova.alina@gmail.com
+__Адрес электронной почты:__ cuznetsova.alina@gmail.com
 
-t.me/wildlighted 
+__Телеграм__: t.me/wildlighted 
 
-1 курс: github.com/wildlighted/coding-year-1
+__Материалы за 1 курс__: [лежат тут] (github.com/wildlighted/coding-year-1)
+
+Что|Где
+---|---:
+ДЗ 1|[Виселица] (github.com/wildlighted/coding-year-2/tree/master/hw/hanging%20man)
+ДЗ 2|[Информация про пользователей] (github.com/wildlighted/coding-year-2/tree/master/hw/hw2)
