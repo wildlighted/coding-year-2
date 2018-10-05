@@ -4,7 +4,7 @@
 
 __Адрес электронной почты:__ cuznetsova.alina@gmail.com
 
-__Телеграм__: [тык](t.me/wildlighted)
+__Телеграм__: [тык](https://t.me/wildlighted)
 
 __Материалы за 1 курс__: [лежат тут](https://github.com/wildlighted/coding-year-1)
 
