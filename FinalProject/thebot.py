@@ -8,33 +8,14 @@ telebot.apihelper.proxy = {
     'https': 'socks5h://geek:socks@t.geekclass.ru:7777'}
 bot = telebot.TeleBot(conf.TOKEN)
 
-keyboard_1 = types.ReplyKeyboardMarkup(row_width=2)
-sms = types.KeyboardButton('Давай смску!')
-play = types.KeyboardButton('Хочу сыграть!')
-stop = types.KeyboardButton('Стоп, надоело.')
-keyboard_1.add(sms, play, stop)
-
-keyboard_2 = types.ReplyKeyboardMarkup(row_width=2)
-more_sms = types.KeyboardButton(random.choice(['Еще одну!', 'Давай дальше!',
-                                        'Хочу еще!']))
-now_play = types.KeyboardButton('Хватит, давай сыграем!')
-stop_1 = types.KeyboardButton('Горшочек, не вари!')
-keyboard_2.add(more_sms, now_play, stop_1)
-
-keyboard_3 = types.ReplyKeyboardMarkup(row_width=2)
-btn1 = types.KeyboardButton('1')
-btn2 = types.KeyboardButton('2')
-keyboard_3.add(btn1, btn2)
-
-keyboard_4 = types.ReplyKeyboardMarkup(row_width=2)
-more_play = types.KeyboardButton(
-        random.choice(['Еще разок!', 'Играем дальше!']))
-now_sms = types.KeyboardButton('Окей, хочу почитать!')
-stop_2 = types.KeyboardButton('Все, больше не хочу.')
-keyboard_4.add(more_play, now_sms, stop_2)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
+    keyboard_1 = types.ReplyKeyboardMarkup(row_width=2)
+    sms = types.KeyboardButton('Давай смску!')
+    play = types.KeyboardButton('Хочу сыграть!')
+    stop = types.KeyboardButton('Стоп, надоело.')
+    keyboard_1.add(sms, play, stop)
     bot.send_message(message.chat.id,
                      "Привет! Я бот, который генерирует для вас "
                      "пьяные смски на основе сайта textsfromlastnight.com\n"
@@ -48,6 +29,13 @@ def send_welcome(message):
                                                'Давай дальше!', 'Хочу еще!',
                                                'Окей, хочу почитать!'])
 def send_generated_text(message):
+    keyboard_2 = types.ReplyKeyboardMarkup(row_width=2)
+    more_sms = types.KeyboardButton(
+        random.choice(['Еще одну!', 'Давай дальше!',
+                       'Хочу еще!']))
+    now_play = types.KeyboardButton('Хватит, давай сыграем!')
+    stop_1 = types.KeyboardButton('Горшочек, не вари!')
+    keyboard_2.add(more_sms, now_play, stop_1)
     bot.send_message(message.chat.id, textsfromlastnight.make_text('clean.txt'),
                      reply_markup=keyboard_2)
 
@@ -55,6 +43,10 @@ def send_generated_text(message):
                                                'Хочу сыграть!',
                                                'Еще разок!', 'Играем дальше!'])
 def guess_one(message):
+    keyboard_3 = types.ReplyKeyboardMarkup(row_width=2)
+    btn1 = types.KeyboardButton('1')
+    btn2 = types.KeyboardButton('2')
+    keyboard_3.add(btn1, btn2)
     global real_text
     global choice
     real_text = textsfromlastnight.choose_text('clean.txt')
@@ -66,6 +58,12 @@ def guess_one(message):
 
 @bot.message_handler(func=lambda x: x.text in ['1', '2'])
 def answer(message):
+    keyboard_4 = types.ReplyKeyboardMarkup(row_width=2)
+    more_play = types.KeyboardButton(
+        random.choice(['Еще разок!', 'Играем дальше!']))
+    now_sms = types.KeyboardButton('Окей, хочу почитать!')
+    stop_2 = types.KeyboardButton('Все, больше не хочу.')
+    keyboard_4.add(more_play, now_sms, stop_2)
     if choice[int(message.text)- 1] == real_text:
         bot.send_message(message.chat.id, 'Точно! Это человек.',
                          reply_markup=keyboard_4)
