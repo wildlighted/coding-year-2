@@ -1,12 +1,13 @@
 import telebot
 from telebot import types
-import conf
 import random
 import textsfromlastnight
+import os
+BOT_TOKEN = os.environ["BOT_TOKEN"]
 
 telebot.apihelper.proxy = {
     'https': 'socks5h://geek:socks@t.geekclass.ru:7777'}
-bot = telebot.TeleBot(conf.TOKEN)
+bot = telebot.TeleBot(BOT_TOKEN)
 
 
 @bot.message_handler(commands=['start', 'help'])
