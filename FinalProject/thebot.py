@@ -26,7 +26,7 @@ def send_welcome(message):
                      "угадать, настоящая ли перед вами смска. Вперед!",
                      reply_markup=keyboard_1)
 
-@bot.message_handler(func=lambda x: x.text in ['Давай смску!', 'Еще одну',
+@bot.message_handler(func=lambda x: x.text in ['Давай смску!', 'Еще одну!',
                                                'Давай дальше!', 'Хочу еще!',
                                                'Окей, хочу почитать!'])
 def send_generated_text(message):
