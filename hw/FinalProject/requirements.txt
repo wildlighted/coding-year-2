@@ -1,5 +1,0 @@
-Flask==1.0.2
-markovify==0.7.1
-PySocks==1.7.0
-pyTelegramBotAPI==3.6.6
-requests-html==0.10.0
