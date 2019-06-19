@@ -9,14 +9,14 @@ telebot.apihelper.proxy = {
     'https': 'socks5h://geek:socks@t.geekclass.ru:7777'}
 bot = telebot.TeleBot(BOT_TOKEN)
 
+keyboard_1 = types.ReplyKeyboardMarkup(row_width=2)
+sms = types.KeyboardButton('Давай смску!')
+play = types.KeyboardButton('Хочу сыграть!')
+stop = types.KeyboardButton('Стоп, надоело.')
+keyboard_1.add(sms, play, stop)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    keyboard_1 = types.ReplyKeyboardMarkup(row_width=2)
-    sms = types.KeyboardButton('Давай смску!')
-    play = types.KeyboardButton('Хочу сыграть!')
-    stop = types.KeyboardButton('Стоп, надоело.')
-    keyboard_1.add(sms, play, stop)
     bot.send_message(message.chat.id,
                      "Привет! Я бот, который генерирует для вас "
                      "пьяные смски на основе сайта textsfromlastnight.com\n"
@@ -77,6 +77,18 @@ def answer(message):
 def goodbye(message):
     bot.send_message(message.chat.id, 'Хорошо, пока! Чтобы начать заново, '
                                       'нужно написать мне /start')
+
+@bot.message_handler(func=lambda x: x.text in ['Стоп, надоело.',
+                     'Все, больше не хочу.', 'Горшочек, не вари!'])
+def goodbye(message):
+    bot.send_message(message.chat.id, 'Хорошо, пока! Чтобы начать заново, '
+                                      'нужно написать мне /start')
+
+@bot.message_handler(func=lambda m: True)
+def say_sorry(message):
+    bot.send_message(message.chat.id, 'Мне жаль, но я глуповат и понимаю '
+                     'только команды кнопок. Простите и нажмите что-нибудь :(',
+                      reply_markup=keyboard_1)
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
