@@ -15,3 +15,4 @@ __Материалы за 1 курс__: [лежат тут](https://github.com/w
 ДЗ 3-5|Не существует в природе
 ДЗ 6|[Огрызок VK API](https://github.com/wildlighted/coding-year-2/blob/master/hw/hw6.ipynb)
 ДЗ 7|[Word2vec и Networkx](https://github.com/wildlighted/coding-year-2/blob/master/hw/hw7.ipynb)
+Проект|[Texts-from-last-allnighter](https://github.com/wildlighted/coding-year-2/tree/master/FinalProject)
