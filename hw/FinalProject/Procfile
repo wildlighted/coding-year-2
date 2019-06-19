@@ -1,0 +1,2 @@
+app: python thebot.py
+web: python wakeup.py
