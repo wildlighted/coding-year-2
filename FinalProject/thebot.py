@@ -78,11 +78,6 @@ def goodbye(message):
     bot.send_message(message.chat.id, 'Хорошо, пока! Чтобы начать заново, '
                                       'нужно написать мне /start')
 
-@bot.message_handler(func=lambda x: x.text in ['Стоп, надоело.',
-                     'Все, больше не хочу.', 'Горшочек, не вари!'])
-def goodbye(message):
-    bot.send_message(message.chat.id, 'Хорошо, пока! Чтобы начать заново, '
-                                      'нужно написать мне /start')
 
 @bot.message_handler(func=lambda m: True)
 def say_sorry(message):
